@@ -1,0 +1,72 @@
+﻿@inherits UmbracoViewPage<UmbarcoTest.Models.SendMail>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/contact-form-01/css/style.css">
+@using(Html.BeginUmbracoForm("Save", "SendMail", FormMethod.Post))
+{
+@Html.AntiForgeryToken();
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Contact Form #01</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters">
+                        <div class="col-md-7 d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Get in touch</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                <div id="form-message-success" class="mb-4">
+                                    Your message was sent, thank you!
+                                </div>
+                                <form method="POST" id="contactForm" name="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.FirstName)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.FirstName)
+                                                @Html.ValidationMessageFor(m => m.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.LastName)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.LastName)
+                                                @Html.ValidationMessageFor(m => m.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(m => m.Email)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Email)
+                                                @Html.ValidationMessageFor(m => m.Email)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(m => m.Message)
+                                            <div class="form-group">
+                                                @Html.TextAreaFor(m => m.Message)
+                                                @Html.ValidationMessageFor(m => m.Message)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="submit" value="Send Message" class="btn btn-primary">
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
